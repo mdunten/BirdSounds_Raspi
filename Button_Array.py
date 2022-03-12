@@ -1,6 +1,7 @@
 # import required libraries
 import RPi.GPIO as GPIO
 import time
+import pygame
 
 # these GPIO pins are connected to the keypad
 # change these according to your connections!
@@ -47,6 +48,7 @@ def readLine(line, characters):
 	GPIO.output(line, GPIO.HIGH)
 	if(GPIO.input(C1) == 1):
 		print(characters[0])
+		playsound(characters[0])
 	if(GPIO.input(C2) == 1):
 		print(characters[1])
 	if(GPIO.input(C3) == 1):
@@ -61,13 +63,26 @@ def readLine(line, characters):
 		print(characters[6])
 	GPIO.output(line, GPIO.LOW)
 
+def playsound(file):
+	pygame.mixer.init()
+	sound = pygame.mixer.Sound(file)
+	speaker = sound.play()
+	#this keep it from exiting before sounds plays
+	while speaker.get_busy():
+		time.sleep(2)
+
 try:
     while True:
         # call the readLine function for each row of the keypad
-        readLine(L1, ["A1","A2","A3","A4","A5","A6","A7"])
+        readLine(L1, ["XC165398_Canadian_Goose.wav","A2","A3","A4","A5","A6","A7"])
         readLine(L2, ["B1","B2","B3","B4","B5","B6","B7"])
         readLine(L3, ["C1","C2","C3","C4","C5","C6","C7"])
         #readLine(L4, ["*","0","#","D"])
         time.sleep(0.1)
+
+
+
+
+
 except KeyboardInterrupt:
     print("\nApplication stopped!")
