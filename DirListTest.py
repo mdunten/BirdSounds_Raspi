@@ -1,0 +1,30 @@
+import os
+def list_full_path(directory):
+        return [os.path.join(directory,file) for file in os.listdir(directory)]
+
+print(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/1")[0])
+print(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/2")[0])
+
+arr_files = list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/1")
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/2")[0])
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/3"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/4"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/5"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/6"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/7"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row2/1"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row2/2"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row2/3"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row2/4"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row2/5"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row2/6"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row2/7"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row3/1"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row3/2"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row3/3"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row3/4"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row3/5"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row3/6"))
+arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row3/7"))
+#print (arr_files[0])
+print(arr_files[1])

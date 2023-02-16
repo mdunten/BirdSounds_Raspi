@@ -1,3 +1,6 @@
 curl -sS https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2samp.sh | bash
 aplay -l
 Consider modification to /etc/asound.conf depending on soundbonnets hardware number
+#consider modifying /boot/config.txt to hdmi_drive=1 to remove sound from hdmi
+#above didnt always help
+#sudo raspi-config, change audio device to hifiberry
