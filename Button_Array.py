@@ -4,13 +4,11 @@ import time
 import pygame
 import os
 
-# these GPIO pins are connected to the keypad
-# change these according to your connections!
+# these GPIO pins are connected to the harness. Do not change these unless you manually inspect.
 L1 = 4
 L2 = 3
 L3 = 2
 #L4 = 1
-
 C1 = 10
 C2 = 9
 C3 = 7
@@ -49,7 +47,7 @@ GPIO.setup(C7, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 def list_full_path(directory):
         return [os.path.join(directory,file) for file in os.listdir(directory)]
 
-arr_files = list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/1")
+arr_files = list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/1") 
 arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/2")[0])
 arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/3")[0])
 arr_files.append(list_full_path("/home/pi/Desktop/SoundBoard/Sounds/Row1/4")[0])
@@ -102,8 +100,10 @@ def playsound(file):
 	pygame.mixer.init()
 	print(arr_files[file])
 	sound = pygame.mixer.Sound(arr_files[file])
+	#hardcode volume setting
+	sound.set_volume(0.1)
 	#hardcoding sounds to only play for 5 seconds, remove if not needed 
-	speaker = sound.play(loops=0,maxtime=3000,fade_ms=1)
+	speaker = sound.play(loops=0,maxtime=7000,fade_ms=1)
 	#this keep it from exiting before sounds plays
 	while speaker.get_busy():
 		time.sleep(2)
@@ -116,9 +116,6 @@ try:
         readLine(L3, [14,15,16,17,18,19,20])
         #readLine(L4, ["*","0","#","D"])
         time.sleep(0.1)
-
-
-
 
 
 except KeyboardInterrupt:
